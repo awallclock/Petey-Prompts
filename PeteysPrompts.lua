@@ -110,10 +110,7 @@ end
 -- things to do on initialize
 function PeteyPrompts:OnInitialize()
     local defaults = {
-        profile = {
-            delayTimer = "60",
-            defaultChannel = "PARTY",
-        }
+        profile = {},
     }
     SLASH_PeteyPrompts1 = "/pp"
     SLASH_PeteyPrompts2 = "/peteysprompts"
@@ -126,7 +123,6 @@ end
 function PeteyPrompts:OnEnable()
     self:RegisterComm(self._commPrefix)
     PeteyPrompts:BuildOptionsPanel()
-    self:ScheduleTimer("TimerFeedback", 10)
     --register chat events
     self:RegisterEvent("CHAT_MSG_RAID", "readChat")
     self:RegisterEvent("CHAT_MSG_PARTY", "readChat")
@@ -154,7 +150,7 @@ function PeteyPrompts:readChat(event, msg, _, _, _, sender)
     end
 end
 
-function PeteyPrompts:GetFact()
+function PeteyPrompts:GetPrompt()
 
 end
 
@@ -169,17 +165,10 @@ end
 
 -- slash commands and their outputs
 function PeteyPrompts:SlashCommand(msg)
-    local msg = string.lower(msg)
-    local out = PeteyPrompts:GetFact()
-    local default = self.db.profile.defaultChannel
-    local defaultAuto = self.db.profile.defaultAutoChannel
+    openWindow()
 end
 
 -- error message
 function PeteyPrompts:factError()
 
-end
-
-function PeteyPrompts:TimerFeedback()
-    self:Print("Type \'/bf help\' to view available commands or \'/bf options\' to view the options panel")
 end
