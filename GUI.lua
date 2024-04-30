@@ -29,7 +29,7 @@ function openWindow()
     prompt:SetNumLines(3)
     prompt:SetRelativeWidth(1)
     prompt:SetLabel("Add prompt here")
-    prompt:SetMaxLetters(220)
+    prompt:SetMaxLetters(250)
     prompt:ClearAllPoints()
     f:AddChild(prompt)
 
@@ -51,7 +51,7 @@ function openWindow()
     f:AddChild(optionB)
 
     local sendBtn = ppGUI:Create("Button")
-    sendBtn:SetText("Send Prompt")
+    sendBtn:SetText("Send Prompt >>")
     sendBtn:SetWidth(175)
     f:AddChild(sendBtn)
 
